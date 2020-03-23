@@ -22,11 +22,6 @@ matrix:
         - binutils-mingw-w64-i686
         - gcc-mingw-w64-i686
         - yasm
-        - libreadline-dev
-        - libasound-dev
-        - libgl1-mesa-dev
-        - libegl1-mesa-dev
-        - libxrandr-dev        
     script:
       # Preparatory actions
       - BUILD=$(($(git rev-list --count --first-parent HEAD)+3500))
