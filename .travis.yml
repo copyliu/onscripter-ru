@@ -21,6 +21,12 @@ matrix:
         packages:
         - binutils-mingw-w64-i686
         - gcc-mingw-w64-i686
+        - yasm
+        - libreadline-dev
+        - libasound-dev
+        - libgl1-mesa-dev
+        - libegl1-mesa-dev
+        - libxrandr-dev        
     script:
       # Preparatory actions
       - BUILD=$(($(git rev-list --count --first-parent HEAD)+3500))
@@ -28,8 +34,6 @@ matrix:
       - mkdir -p ciout
       # Disable compiler overrides as they cause problems
       - unset CC ; unset CXX ; unset CC_FOR_BUILD ; unset CXX_FOR_BUILD
-      # homebrew addon is just broken; force update here
-      - brew install yasm mingw-w64
       # Set compilers compatible with Windows
       - export CC=i686-w64-mingw32-gcc
       - export CXX=i686-w64-mingw32-g++
